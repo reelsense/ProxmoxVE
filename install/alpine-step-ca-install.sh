@@ -13,6 +13,8 @@ setting_up_container
 network_check
 update_os
 
+: "${HN:=$(hostname -s 2>/dev/null || echo ca)}"
+
 # Install dependencies for setup dialog
 msg_info "Installing Dependencies for Setup"
 $STD apk add newt
