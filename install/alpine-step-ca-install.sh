@@ -119,7 +119,7 @@ msg_ok "Step CA Service is running"
 
 if [ ${#x509_policy_dns[@]} -gt 0 ] || [ ${#x509_policy_ips[@]} -gt 0 ]; then
   msg_info "Configuring CA X.509 policy"
-  $STD step ca policy authority x509 allow dns "${ca_admin_subject}" --admin-provisioner "${ca_admin_provisioner}" --admin-subject "${ca_admin_subject}" --password-file "${ca_admin_provisioner_passwd_file}"
+  $STD step ca policy authority x509 allow dns "${CA_PRIMARY_DNS}" --admin-provisioner "${ca_admin_provisioner}" --admin-subject "${ca_admin_subject}" --password-file "${ca_admin_provisioner_passwd_file}"
   if [ ${#x509_policy_dns[@]} -gt 0 ]; then
     $STD step ca policy authority x509 allow dns "${x509_policy_dns[*]}" --admin-provisioner "${ca_admin_provisioner}" --admin-subject "${ca_admin_subject}" --password-file "${ca_admin_provisioner_passwd_file}"
   fi
